@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banker Dashboard — CoreBank</title>
+<link rel="stylesheet" href="../css/variables.css">
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/tables.css">
+<link rel="stylesheet" href="../css/banker.css">
+<link rel="stylesheet" href="../css/responsive.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+</head>
+<body data-chrome="banker" class="banker-shell">
+<header class="topbar">
+  <div class="brand">Core<span class="dot">Bank</span></div>
+  <span class="banker-badge">BANKER MODE</span>
+</header>
+<div class="app-shell">
+  <aside class="sidebar">
+    <nav>
+      <a href="banker-dashboard.html" data-page="banker-dashboard.html">📊 Dashboard</a>
+      <a href="customers.html" data-page="customers.html">👥 Customers</a>
+      <a href="accounts.html" data-page="accounts.html">💳 Accounts</a>
+      <a href="transactions.html" data-page="transactions.html">📄 Transactions</a>
+      <a href="suspicious-transactions.html" data-page="suspicious-transactions.html">🚩 Suspicious Activity</a>
+      <a href="cards.html" data-page="cards.html">🪪 Cards</a>
+      <a href="loans.html" data-page="loans.html">🏦 Loans</a>
+      <a href="audit-logs.html" data-page="audit-logs.html">📝 Audit Logs</a>
+      <div class="divider"></div>
+      <a href="#" data-action="back-home">← Back to Home</a>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div class="container">
+      <div class="page-title"><div><h1>Banker Dashboard</h1><p>Live overview of the simulated banking system.</p></div></div>
+
+      <div class="grid grid-4" id="statsGrid" style="margin-bottom:24px;">
+        <div class="card skeleton" style="height:90px"></div>
+      </div>
+
+      <div class="grid" style="grid-template-columns: 1.4fr 1fr; gap:20px;">
+        <div class="chart-card"><h3>Daily Transaction Volume</h3><canvas id="volumeChart"></canvas></div>
+        <div class="chart-card"><h3>Account Type Distribution</h3><canvas id="accountTypeChart"></canvas></div>
+      </div>
+      <div class="chart-card" style="margin-top:20px; max-width:420px;">
+        <h3>Loan Status Distribution</h3><canvas id="loanStatusChart"></canvas>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/api.js"></script>
+<script src="../js/utils.js"></script>
+<script src="../js/notifications.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/charts.js"></script>
+<script src="../js/banker-dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+@media (max-width: 640px) {
+  .container { padding: 0 16px; }
+  .balance-hero .amount { font-size: 1.9rem; }
+  .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+  .modal { padding: 20px; }
+  .field-row { flex-direction: column; gap: 0; }
+  table { font-size: 0.82rem; }
+  thead th, tbody td { padding: 10px 8px; }
+  .topbar { padding: 12px 14px; }
+  .topbar-customer span.name { display: none; }
+}

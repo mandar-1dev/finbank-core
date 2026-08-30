@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transactions — CoreBank</title>
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/tables.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-chrome="customer">
+<header class="topbar">
+  <div class="brand">Core<span class="dot">Bank</span></div>
+  <div class="topbar-actions"><div class="topbar-customer" data-topbar-customer></div></div>
+</header>
+<div class="app-shell">
+  <aside class="sidebar">
+    <nav>
+      <a href="dashboard.html" data-page="dashboard.html">🏠 Dashboard</a>
+      <a href="accounts.html" data-page="accounts.html">💳 Accounts</a>
+      <a href="transfer.html" data-page="transfer.html">↔ Transfer Money</a>
+      <a href="transactions.html" data-page="transactions.html">📄 Transactions</a>
+      <a href="beneficiaries.html" data-page="beneficiaries.html">👥 Beneficiaries</a>
+      <a href="cards.html" data-page="cards.html">🪪 Cards</a>
+      <a href="loans.html" data-page="loans.html">🏦 Loans</a>
+      <a href="profile.html" data-page="profile.html">⚙ Profile</a>
+      <div class="divider"></div>
+      <a href="#" data-action="switch-customer">🔁 Switch Customer</a>
+      <a href="#" data-action="back-home">← Back to Home</a>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div class="container">
+      <div class="page-title"><div><h1>Transactions</h1><p>Every transaction across your accounts.</p></div></div>
+      <div class="table-wrap">
+        <div class="table-toolbar">
+          <input type="search" id="searchInput" placeholder="Search description or reference…">
+          <select id="typeFilter">
+            <option value="">All types</option>
+            <option value="DEPOSIT">Deposit</option>
+            <option value="WITHDRAWAL">Withdrawal</option>
+            <option value="TRANSFER">Transfer</option>
+            <option value="CARD_PAYMENT">Card Payment</option>
+            <option value="LOAN_DISBURSEMENT">Loan Disbursement</option>
+            <option value="LOAN_REPAYMENT">Loan Repayment</option>
+          </select>
+          <input type="date" id="dateFilter">
+        </div>
+        <table>
+          <thead><tr><th>Ref</th><th>Type</th><th>Description</th><th>Date</th><th>Status</th><th style="text-align:right;">Amount</th></tr></thead>
+          <tbody id="txnBody"><tr><td colspan="6" class="muted">Loading…</td></tr></tbody>
+        </table>
+        <div class="pagination" id="pagination"></div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="js/api.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/customer-context.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/transactions.js"></script>
+</body>
+</html>

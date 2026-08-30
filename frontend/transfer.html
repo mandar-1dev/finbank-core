@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transfer Money — CoreBank</title>
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-chrome="customer">
+<header class="topbar">
+  <div class="brand">Core<span class="dot">Bank</span></div>
+  <div class="topbar-actions"><div class="topbar-customer" data-topbar-customer></div></div>
+</header>
+<div class="app-shell">
+  <aside class="sidebar">
+    <nav>
+      <a href="dashboard.html" data-page="dashboard.html">🏠 Dashboard</a>
+      <a href="accounts.html" data-page="accounts.html">💳 Accounts</a>
+      <a href="transfer.html" data-page="transfer.html">↔ Transfer Money</a>
+      <a href="transactions.html" data-page="transactions.html">📄 Transactions</a>
+      <a href="beneficiaries.html" data-page="beneficiaries.html">👥 Beneficiaries</a>
+      <a href="cards.html" data-page="cards.html">🪪 Cards</a>
+      <a href="loans.html" data-page="loans.html">🏦 Loans</a>
+      <a href="profile.html" data-page="profile.html">⚙ Profile</a>
+      <div class="divider"></div>
+      <a href="#" data-action="switch-customer">🔁 Switch Customer</a>
+      <a href="#" data-action="back-home">← Back to Home</a>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div class="container" style="max-width:640px;">
+      <div class="page-title"><div><h1 id="formTitle">Transfer Money</h1><p>Move money between your accounts and beneficiaries.</p></div></div>
+
+      <div class="card" style="margin-bottom:20px; display:flex; gap:8px;">
+        <button class="btn btn-sm" data-mode="transfer" id="tabTransfer">Transfer</button>
+        <button class="btn btn-sm" data-mode="deposit" id="tabDeposit">Deposit</button>
+        <button class="btn btn-sm" data-mode="withdraw" id="tabWithdraw">Withdraw</button>
+      </div>
+
+      <div class="card">
+        <form id="transferForm">
+          <div class="field">
+            <label>From Account</label>
+            <select id="fromAccount" required></select>
+          </div>
+
+          <div class="field" id="toAccountField">
+            <label>To Beneficiary</label>
+            <select id="toBeneficiary" required></select>
+            <p class="hint">Don't see who you need? Add them on the Beneficiaries page.</p>
+          </div>
+
+          <div class="field">
+            <label>Amount (₹)</label>
+            <input type="number" id="amount" min="1" step="0.01" required placeholder="e.g. 5000">
+          </div>
+
+          <div class="field">
+            <label>Description</label>
+            <input type="text" id="description" placeholder="What's this for?">
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" id="submitBtn">Review Transfer</button>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/customer-context.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/transfer.js"></script>
+</body>
+</html>

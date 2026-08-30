@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile — CoreBank</title>
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-chrome="customer">
+<header class="topbar">
+  <div class="brand">Core<span class="dot">Bank</span></div>
+  <div class="topbar-actions"><div class="topbar-customer" data-topbar-customer></div></div>
+</header>
+<div class="app-shell">
+  <aside class="sidebar">
+    <nav>
+      <a href="dashboard.html" data-page="dashboard.html">🏠 Dashboard</a>
+      <a href="accounts.html" data-page="accounts.html">💳 Accounts</a>
+      <a href="transfer.html" data-page="transfer.html">↔ Transfer Money</a>
+      <a href="transactions.html" data-page="transactions.html">📄 Transactions</a>
+      <a href="beneficiaries.html" data-page="beneficiaries.html">👥 Beneficiaries</a>
+      <a href="cards.html" data-page="cards.html">🪪 Cards</a>
+      <a href="loans.html" data-page="loans.html">🏦 Loans</a>
+      <a href="profile.html" data-page="profile.html">⚙ Profile</a>
+      <div class="divider"></div>
+      <a href="#" data-action="switch-customer">🔁 Switch Customer</a>
+      <a href="#" data-action="back-home">← Back to Home</a>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div class="container" style="max-width:560px;">
+      <div class="page-title"><div><h1>Profile</h1><p>Your simulated customer profile.</p></div></div>
+      <div class="card" id="profileCard">
+        <div class="skeleton" style="height:160px"></div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="js/api.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/customer-context.js"></script>
+<script src="js/navigation.js"></script>
+<script>
+async function loadProfile() {
+  const id = requireSelectedCustomer();
+  if (!id) return;
+  try {
+    const c = await api.get(`/customers/${id}`);
+    qs('#profileCard').innerHTML = `
+      <div style="display:flex; align-items:center; gap:14px; margin-bottom:20px;">
+        <span class="avatar" style="width:52px;height:52px;font-size:1.2rem;border-radius:50%;background:var(--color-primary);color:#fff;display:flex;align-items:center;justify-content:center;">${initials(c.fullName)}</span>
+        <div><h2 style="margin-bottom:2px;">${escapeHtml(c.fullName)}</h2><p class="muted">${escapeHtml(c.customerNumber)}</p></div>
+      </div>
+      <div class="modal-row"><span class="muted">Email</span><strong>${escapeHtml(c.email)}</strong></div>
+      <div class="modal-row"><span class="muted">Phone</span><strong>${escapeHtml(c.phone)}</strong></div>
+      <div class="modal-row"><span class="muted">Date of Birth</span><strong>${c.dateOfBirth}</strong></div>
+      <div class="modal-row"><span class="muted">Address</span><strong>${escapeHtml(c.address)}</strong></div>
+      <div class="modal-row"><span class="muted">Status</span><span class="badge ${statusBadgeClass(c.status)}">${c.status}</span></div>`;
+  } catch (err) {
+    notify.error(err.message);
+  }
+}
+document.addEventListener('DOMContentLoaded', loadProfile);
+</script>
+</body>
+</html>

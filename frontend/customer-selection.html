@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Choose a Customer — CoreBank</title>
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">Core<span class="dot">Bank</span></div>
+  <a href="index.html" class="btn btn-ghost btn-sm">← Back to Home</a>
+</header>
+
+<div class="container">
+  <div class="page-title">
+    <div>
+      <h1>Choose a Customer</h1>
+      <p>Select a predefined demo customer to explore the customer experience.</p>
+    </div>
+  </div>
+
+  <div id="customerGrid" class="grid grid-3">
+    <div class="card skeleton" style="height:220px"></div>
+    <div class="card skeleton" style="height:220px"></div>
+    <div class="card skeleton" style="height:220px"></div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/customer-context.js"></script>
+<script src="js/customer-selection.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+:root {
+  /* Brand */
+  --color-primary: #146c56;
+  --color-primary-dark: #0e4f3f;
+  --color-primary-light: #e4f3ee;
+  --color-accent: #d9a441;
+
+  /* Neutrals */
+  --color-bg: #f5f7f8;
+  --color-surface: #ffffff;
+  --color-border: #e2e6e8;
+  --color-text: #1b2430;
+  --color-text-muted: #5c6b73;
+  --color-text-faint: #8b98a0;
+
+  /* Status */
+  --color-success: #1f8a4c;
+  --color-success-bg: #e7f6ec;
+  --color-danger: #c0392b;
+  --color-danger-bg: #fbeae8;
+  --color-warning: #b8790a;
+  --color-warning-bg: #fdf3e0;
+  --color-info: #2266b0;
+  --color-info-bg: #e8f1fb;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px rgba(15, 30, 25, 0.06);
+  --shadow-md: 0 4px 14px rgba(15, 30, 25, 0.08);
+  --shadow-lg: 0 12px 32px rgba(15, 30, 25, 0.14);
+
+  /* Shape */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+
+  /* Type */
+  --font-base: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+
+  /* Layout */
+  --sidebar-width: 240px;
+  --content-max-width: 1180px;
+}

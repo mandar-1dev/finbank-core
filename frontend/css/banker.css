@@ -1,0 +1,12 @@
+.banker-shell .sidebar a.active { background: #fdf0e2; color: #8a5a12; }
+.banker-shell .topbar { border-bottom-color: #ecd9b8; }
+.banker-badge {
+  background: var(--color-accent); color: #4a3208;
+  padding: 3px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 700;
+}
+.risk-LOW { color: var(--color-success); }
+.risk-MEDIUM { color: var(--color-warning); }
+.risk-HIGH { color: var(--color-danger); font-weight: 700; }
+
+.chart-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 18px; }
+.chart-card canvas { max-height: 260px; }

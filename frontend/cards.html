@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cards — CoreBank</title>
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/responsive.css">
+<style>
+  .card-visual {
+    background: linear-gradient(135deg, #1b2430, #384a5c);
+    color: white; border-radius: var(--radius-lg); padding: 24px;
+    aspect-ratio: 16/9.5; display:flex; flex-direction:column; justify-content:space-between;
+    box-shadow: var(--shadow-md);
+  }
+  .card-visual .brand-mini { font-weight:700; letter-spacing:0.05em; opacity:0.9; }
+  .card-visual .number { font-family: var(--font-mono); font-size:1.15rem; letter-spacing:0.08em; }
+  .card-visual .meta { display:flex; justify-content:space-between; font-size:0.78rem; opacity:0.85; text-transform:uppercase; }
+  .card-visual.frozen { filter: grayscale(0.7); opacity: 0.75; }
+</style>
+</head>
+<body data-chrome="customer">
+<header class="topbar">
+  <div class="brand">Core<span class="dot">Bank</span></div>
+  <div class="topbar-actions"><div class="topbar-customer" data-topbar-customer></div></div>
+</header>
+<div class="app-shell">
+  <aside class="sidebar">
+    <nav>
+      <a href="dashboard.html" data-page="dashboard.html">🏠 Dashboard</a>
+      <a href="accounts.html" data-page="accounts.html">💳 Accounts</a>
+      <a href="transfer.html" data-page="transfer.html">↔ Transfer Money</a>
+      <a href="transactions.html" data-page="transactions.html">📄 Transactions</a>
+      <a href="beneficiaries.html" data-page="beneficiaries.html">👥 Beneficiaries</a>
+      <a href="cards.html" data-page="cards.html">🪪 Cards</a>
+      <a href="loans.html" data-page="loans.html">🏦 Loans</a>
+      <a href="profile.html" data-page="profile.html">⚙ Profile</a>
+      <div class="divider"></div>
+      <a href="#" data-action="switch-customer">🔁 Switch Customer</a>
+      <a href="#" data-action="back-home">← Back to Home</a>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div class="container">
+      <div class="page-title"><div><h1>Cards</h1><p>Simulated debit cards linked to your accounts.</p></div></div>
+      <div class="grid grid-3" id="cardsGrid">
+        <div class="card skeleton" style="height:180px"></div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="js/api.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/customer-context.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/cards.js"></script>
+</body>
+</html>

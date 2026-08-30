@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — CoreBank</title>
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/tables.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-chrome="customer">
+
+<header class="topbar">
+  <div class="brand">Core<span class="dot">Bank</span></div>
+  <div class="topbar-actions">
+    <div class="topbar-customer" data-topbar-customer></div>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <nav>
+      <a href="dashboard.html" data-page="dashboard.html">🏠 Dashboard</a>
+      <a href="accounts.html" data-page="accounts.html">💳 Accounts</a>
+      <a href="transfer.html" data-page="transfer.html">↔ Transfer Money</a>
+      <a href="transactions.html" data-page="transactions.html">📄 Transactions</a>
+      <a href="beneficiaries.html" data-page="beneficiaries.html">👥 Beneficiaries</a>
+      <a href="cards.html" data-page="cards.html">🪪 Cards</a>
+      <a href="loans.html" data-page="loans.html">🏦 Loans</a>
+      <a href="profile.html" data-page="profile.html">⚙ Profile</a>
+      <div class="divider"></div>
+      <a href="#" data-action="switch-customer">🔁 Switch Customer</a>
+      <a href="#" data-action="back-home">← Back to Home</a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="container">
+      <div class="page-title">
+        <div>
+          <h1 id="greeting">Hello 👋</h1>
+          <p>Here's what's happening across your accounts.</p>
+        </div>
+      </div>
+
+      <div class="balance-hero" style="margin-bottom:24px;">
+        <div class="label">Total Balance</div>
+        <div class="amount" id="totalBalance">—</div>
+      </div>
+
+      <h2 style="margin-bottom:14px;">My Accounts</h2>
+      <div class="grid grid-3" id="accountsGrid" style="margin-bottom:28px;">
+        <div class="card skeleton" style="height:120px"></div>
+      </div>
+
+      <h2 style="margin-bottom:14px;">Recent Transactions</h2>
+      <div class="table-wrap" style="margin-bottom:28px;">
+        <table>
+          <thead><tr><th>Description</th><th>Date</th><th style="text-align:right;">Amount</th></tr></thead>
+          <tbody id="recentTxnBody"><tr><td colspan="3" class="muted">Loading…</td></tr></tbody>
+        </table>
+      </div>
+
+      <h2 style="margin-bottom:14px;">Quick Actions</h2>
+      <div class="quick-actions">
+        <a class="btn btn-primary" href="transfer.html">Transfer Money</a>
+        <a class="btn btn-secondary" href="transfer.html?action=deposit">Deposit</a>
+        <a class="btn btn-secondary" href="transfer.html?action=withdraw">Withdraw</a>
+        <a class="btn btn-secondary" href="transactions.html">View Transactions</a>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/customer-context.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

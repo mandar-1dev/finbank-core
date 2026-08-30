@@ -1,0 +1,42 @@
+.table-wrap {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+thead th {
+  text-align: left;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-faint);
+  padding: 12px 16px;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+tbody td { padding: 13px 16px; border-bottom: 1px solid var(--color-border); vertical-align: middle; }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--color-bg); }
+
+.amount-in { color: var(--color-success); font-weight: 600; }
+.amount-out { color: var(--color-danger); font-weight: 600; }
+
+.table-toolbar {
+  display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+.table-toolbar input, .table-toolbar select {
+  padding: 9px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+.table-toolbar input[type="search"] { flex: 1; min-width: 160px; }
+
+.pagination { display: flex; justify-content: center; gap: 6px; padding: 14px; }
+.pagination button {
+  border: 1px solid var(--color-border); background: var(--color-surface);
+  padding: 6px 12px; border-radius: var(--radius-sm); font-size: 0.85rem;
+}
+.pagination button.active { background: var(--color-primary); color: white; border-color: var(--color-primary); }

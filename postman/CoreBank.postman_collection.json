@@ -1,0 +1,147 @@
+{
+  "info": {
+    "name": "CoreBank",
+    "description": "CoreBank — educational banking simulation API. No authentication required.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080/api" },
+    { "key": "customerId", "value": "1" },
+    { "key": "accountId", "value": "1" },
+    { "key": "toAccountId", "value": "3" },
+    { "key": "cardId", "value": "1" }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": { "method": "GET", "url": "{{baseUrl}}/health" }
+    },
+    {
+      "name": "Customers",
+      "item": [
+        { "name": "List Customers", "request": { "method": "GET", "url": "{{baseUrl}}/customers" } },
+        { "name": "Get Customer", "request": { "method": "GET", "url": "{{baseUrl}}/customers/{{customerId}}" } },
+        { "name": "Customer Accounts", "request": { "method": "GET", "url": "{{baseUrl}}/customers/{{customerId}}/accounts" } },
+        { "name": "Customer Transactions", "request": { "method": "GET", "url": "{{baseUrl}}/customers/{{customerId}}/transactions" } },
+        { "name": "Customer Beneficiaries", "request": { "method": "GET", "url": "{{baseUrl}}/customers/{{customerId}}/beneficiaries" } },
+        { "name": "Customer Cards", "request": { "method": "GET", "url": "{{baseUrl}}/customers/{{customerId}}/cards" } },
+        { "name": "Customer Loans", "request": { "method": "GET", "url": "{{baseUrl}}/customers/{{customerId}}/loans" } }
+      ]
+    },
+    {
+      "name": "Accounts",
+      "item": [
+        { "name": "List Accounts", "request": { "method": "GET", "url": "{{baseUrl}}/accounts" } },
+        { "name": "Get Account", "request": { "method": "GET", "url": "{{baseUrl}}/accounts/{{accountId}}" } },
+        { "name": "Account Transactions", "request": { "method": "GET", "url": "{{baseUrl}}/accounts/{{accountId}}/transactions" } }
+      ]
+    },
+    {
+      "name": "Transactions",
+      "item": [
+        {
+          "name": "Deposit",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/transactions/deposit",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"accountId\": {{accountId}},\n  \"amount\": 1000,\n  \"description\": \"Postman deposit\"\n}" }
+          }
+        },
+        {
+          "name": "Withdraw",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/transactions/withdraw",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"accountId\": {{accountId}},\n  \"amount\": 500,\n  \"description\": \"Postman withdrawal\"\n}" }
+          }
+        },
+        {
+          "name": "Transfer",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/transactions/transfer",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Idempotency-Key", "value": "postman-demo-key-001" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"fromAccountId\": {{accountId}},\n  \"toAccountId\": {{toAccountId}},\n  \"amount\": 2000,\n  \"description\": \"Postman transfer\"\n}" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Beneficiaries",
+      "item": [
+        { "name": "List Beneficiaries", "request": { "method": "GET", "url": "{{baseUrl}}/beneficiaries/customer/{{customerId}}" } },
+        {
+          "name": "Add Beneficiary",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/beneficiaries",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"customerId\": {{customerId}},\n  \"name\": \"New Beneficiary\",\n  \"accountNumber\": \"7312000000007312\",\n  \"ifscCode\": \"CORE0000001\",\n  \"nickname\": \"Friend\"\n}" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cards",
+      "item": [
+        { "name": "List Cards", "request": { "method": "GET", "url": "{{baseUrl}}/cards/customer/{{customerId}}" } },
+        { "name": "Freeze Card", "request": { "method": "POST", "url": "{{baseUrl}}/cards/{{cardId}}/freeze" } },
+        { "name": "Unfreeze Card", "request": { "method": "POST", "url": "{{baseUrl}}/cards/{{cardId}}/unfreeze" } },
+        {
+          "name": "Card Payment",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/cards/{{cardId}}/pay",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"merchant\": \"Amazon Simulation\",\n  \"amount\": 1500\n}" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Loans",
+      "item": [
+        { "name": "List Loans", "request": { "method": "GET", "url": "{{baseUrl}}/loans/customer/{{customerId}}" } },
+        {
+          "name": "Estimate EMI",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/loans/estimate",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"principal\": 300000,\n  \"interestRate\": 10.5,\n  \"tenureMonths\": 24\n}" }
+          }
+        },
+        {
+          "name": "Apply for Loan",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/loans/apply",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"customerId\": {{customerId}},\n  \"accountId\": {{accountId}},\n  \"principal\": 300000,\n  \"interestRate\": 10.5,\n  \"tenureMonths\": 24\n}" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Banker",
+      "item": [
+        { "name": "Dashboard", "request": { "method": "GET", "url": "{{baseUrl}}/banker/dashboard" } },
+        { "name": "All Customers", "request": { "method": "GET", "url": "{{baseUrl}}/banker/customers" } },
+        { "name": "Customer Details", "request": { "method": "GET", "url": "{{baseUrl}}/banker/customers/{{customerId}}" } },
+        { "name": "All Accounts", "request": { "method": "GET", "url": "{{baseUrl}}/banker/accounts" } },
+        { "name": "All Transactions", "request": { "method": "GET", "url": "{{baseUrl}}/banker/transactions" } },
+        { "name": "Suspicious Transactions", "request": { "method": "GET", "url": "{{baseUrl}}/banker/suspicious-transactions" } },
+        { "name": "All Cards", "request": { "method": "GET", "url": "{{baseUrl}}/banker/cards" } },
+        { "name": "All Loans", "request": { "method": "GET", "url": "{{baseUrl}}/banker/loans" } },
+        { "name": "Audit Logs", "request": { "method": "GET", "url": "{{baseUrl}}/banker/audit-logs" } },
+        { "name": "Freeze Account", "request": { "method": "POST", "url": "{{baseUrl}}/banker/accounts/{{accountId}}/freeze" } },
+        { "name": "Unfreeze Account", "request": { "method": "POST", "url": "{{baseUrl}}/banker/accounts/{{accountId}}/unfreeze" } }
+      ]
+    }
+  ]
+}

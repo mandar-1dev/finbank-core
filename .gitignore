@@ -1,0 +1,19 @@
+# Go
+/backend/corebank-server
+*.exe
+*.test
+*.out
+
+# Env
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Logs
+*.log

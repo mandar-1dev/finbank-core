@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cards — CoreBank Banker</title>
+<link rel="stylesheet" href="../css/variables.css">
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/tables.css">
+<link rel="stylesheet" href="../css/banker.css">
+<link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body data-chrome="banker" class="banker-shell">
+<header class="topbar">
+  <div class="brand">Core<span class="dot">Bank</span></div>
+  <span class="banker-badge">BANKER MODE</span>
+</header>
+<div class="app-shell">
+  <aside class="sidebar">
+    <nav>
+      <a href="banker-dashboard.html" data-page="banker-dashboard.html">📊 Dashboard</a>
+      <a href="customers.html" data-page="customers.html">👥 Customers</a>
+      <a href="accounts.html" data-page="accounts.html">💳 Accounts</a>
+      <a href="transactions.html" data-page="transactions.html">📄 Transactions</a>
+      <a href="suspicious-transactions.html" data-page="suspicious-transactions.html">🚩 Suspicious Activity</a>
+      <a href="cards.html" data-page="cards.html">🪪 Cards</a>
+      <a href="loans.html" data-page="loans.html">🏦 Loans</a>
+      <a href="audit-logs.html" data-page="audit-logs.html">📝 Audit Logs</a>
+      <div class="divider"></div>
+      <a href="#" data-action="back-home">← Back to Home</a>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div class="container">
+      <div class="page-title"><div><h1>Cards</h1><p>All debit cards issued in the simulation.</p></div></div>
+      <div class="table-wrap">
+        <div class="table-toolbar"><input type="search" id="searchInput" placeholder="Search…"></div>
+        <table>
+          <thead><tr><th>Card</th><th>Holder</th><th>Status</th><th>Spending Limit</th></tr></thead>
+          <tbody id="dataBody"><tr><td class="muted">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/api.js"></script>
+<script src="../js/utils.js"></script>
+<script src="../js/notifications.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/banker-cards.js"></script>
+</body>
+</html>

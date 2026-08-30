@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log In · CoreBank</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<div class="auth-shell">
+    <div class="auth-side">
+        <div class="auth-side__brand"><span class="mark">CB</span> CoreBank</div>
+        <div>
+            <div class="auth-side__quote">A simplified core-banking platform, built to demonstrate safe and consistent financial transaction handling.</div>
+        </div>
+        <div class="auth-side__footnote">
+            CoreBank is an educational simulation. No real banks, payment networks, or financial accounts are involved.
+        </div>
+    </div>
+
+    <div class="auth-form-wrap">
+        <div class="auth-form">
+            <h1>Welcome back</h1>
+            <p>Log in to your CoreBank account.</p>
+
+            <form id="login-form">
+                <div class="form-group">
+                    <label class="form-label" for="email">Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="rahul@demo.corebank" required autocomplete="username">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="••••••••" required autocomplete="current-password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Log In</button>
+            </form>
+
+            <div class="demo-creds">
+                <strong>Demo credentials</strong><br>
+                Customer: <code>rahul@demo.corebank</code> / <code>CoreBank@123</code><br>
+                Admin: <code>admin@demo.corebank</code> / <code>Admin@123</code>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>
